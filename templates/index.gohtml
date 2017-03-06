@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Home</title>
+  </head>
+  <body>
+    <a href="/userForm">Add Users</a><br/>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+      </tr>
+      {{ if . }}
+        {{ range . }}
+        <tr>
+          <td>{{ .ID }}</td>
+          <td>{{ .Username }}</td>
+          <td>{{ .FirstName }}</td>
+          <td>{{ .LastName }}</td>
+          <td>
+            <a href="/deleteUsers?id={{.ID}}">Delete</a> |
+            <a href="/editUsers?id={{.ID}}">Edit</a>
+          </td>
+        </tr>
+        {{ end }}
+      {{ end }}
+    </table>
+  </body>
+  </html>
